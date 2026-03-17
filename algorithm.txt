@@ -1,0 +1,12 @@
+Algorithm: Kitchen Resource Synchronization
+
+1. Initialize a buffer of size 10 where each slot represents the presence (1) or absence (0) of an item.
+2. Initialize three semaphores:
+      empty to 10, representing available empty slots in the buffer,
+      full to 0, representing filled slots,
+      mutex to 1, ensuring mutual exclusion during buffer access.
+3. Create 3 producer threads (order takers), where each producer repeatedly waits for an empty slot, enters the critical section, places an item (value 1) into the buffer at the current in index, updates the index circularly, displays the buffer state, and signals the full semaphore after releasing the mutex.
+4. Create 4 consumer threads (chefs), where each consumer repeatedly waits for a filled slot, enters the critical section, removes an item by setting the buffer position at the current out index to 0, updates the index circularly, displays the buffer state, and signals the empty semaphore after releasing the mutex.
+5. Ensure that producers and consumers coordinate using semaphores so that no producer inserts into a full buffer and no consumer removes from an empty buffer.
+6. Maintain mutual exclusion using the mutex semaphore to prevent concurrent access to the shared buffer.
+7. Continue execution indefinitely to simulate continuous production and consumption of identical items.
