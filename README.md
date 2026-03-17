@@ -80,16 +80,22 @@ gcc kitchen_sync.c -o kitchen -lpthread
 ## 🧪 Sample Output
 
 ```
-Order Taker 1 produced order 45 at position 0
-Buffer: 45 _ _ _ _ _ _ _ _ _
+Order Taker 3 produced order at position 0
+Buffer: 1 _ _ _ _ _ _ _ _ _
 
-Order Taker 2 produced order 78 at position 1
-Buffer: 45 78 _ _ _ _ _ _ _ _
+Order Taker 2 produced order at position 1
+Buffer: 1 1 _ _ _ _ _ _ _ _
 
-Chef 1 consumed order 45 from position 0
-Buffer: _ 78 _ _ _ _ _ _ _ _
+Order Taker 1 produced order at position 2
+Buffer: 1 1 1 _ _ _ _ _ _ _
 
-Chef 1 is preparing order 45
+Chef 4 consumed order from position 0
+Buffer: _ 1 1 _ _ _ _ _ _ _
+Chef 4 is preparing the order
+
+Chef 3 consumed order from position 1
+Buffer: _ _ 1 _ _ _ _ _ _ _
+Chef 3 is preparing the order
 ```
 
 ---
